@@ -1,0 +1,25 @@
+
+* {
+	-webkit-touch-callout: auto;						/* Disable Open/Copy/Cancel */
+	-webkit-user-select: auto;							/* Prevent selection of any element */
+}
+
+body {
+	background-color:#FFF;
+	background:
+	font-family:Arial,Verdana;
+	font-size:1em;
+	margin: 0;
+	padding: 0;
+	overflow: auto;		/* don't hide scrollbar scroll */
+}
+
+canvas {
+	image-rendering: optimizespeed !important;
+	overflow: hidden;	/* hide scrollbar scroll */
+	
+	-webkit-transform-origin: left top;
+	-webkit-transform: scale(1,1);
+}
+
+

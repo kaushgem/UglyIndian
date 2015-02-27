@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>documentSplitViewDividerPositions</key>
+	<array>
+		<real>220</real>
+		<real>410.5</real>
+		<real>1263</real>
+	</array>
+	<key>documentTypeID</key>
+	<integer>5</integer>
+	<key>isThumbnailLocked</key>
+	<false/>
+	<key>language</key>
+	<string>JavaScript</string>
+	<key>sketch</key>
+	<string>// Leaflet
+// kaushik
+
+/* global L:false ,
+          featureCollection: false */
+/* jshint unused:false */
+
+var lat = 43.0045;
+var lon = -78.7814;
+var zoom = 16;
+
+var map = L.map("mapdiv", {
+    center: [lat, lon],
+    zoom: zoom,
+    scrollWheelZoom: false,
+    boxZoom: true,
+    trackResize: true
+});
+
+//Similar way Object 
+//var option = {};
+//option.zoom = 16;
+//var map = L.map("mapdiv",option);
+
+//var option = {
+//    zoom:16
+//    };
+
+L.tileLayer("http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png", {
+    attribution: "Map data &amp;copy; 2014 OSM",
+    maxZoom: 18
+}).addTo(map);
+
+var ownStyle = {
+    radius: 14,
+    fillColor: "red",
+    color: "mintcream",
+    weight: 4,
+    opacity: 1.0,
+    fillOpacity: 0.8
+};
+
+var marker = L.circleMarker([lat, lon], ownStyle).addTo(map).bindPopup("You are defenitely not here");
+
+
+function loadFeatures() {
+    var featureLayer = L.geoJson().addTo(map);
+    featureLayer.addData(featureCollection).bindPopup(function(feature) {
+        return L.Util.template('&lt;p&gt;{name}&lt;br&gt;{description}&lt;/p&gt;', {
+            name: "g",
+            description: "dd"
+        });
+    });
+}
+
+setTimeout(loadFeatures, 200);</string>
+	<key>version</key>
+	<real>3.2000000476837158</real>
+</dict>
+</plist>
